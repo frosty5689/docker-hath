@@ -13,10 +13,10 @@ if { ! [info exists env(HATH_CLIENT_KEY)] } {
 set timeout 2s
 
 spawn java -jar HentaiAtHome.jar        \
-    --cache-dir    /data/hath/cache     \
-    --data-dir     /data/hath/data      \
-    --download-dir /data/hath/download  \
-    --log-dir      /data/hath/log
+    --cache-dir=/data/hath/cache        \
+    --data-dir=/data/hath/data          \
+    --download-dir=/data/hath/download  \
+    --log-dir=/data/hath/log
 
 expect {
     "Enter Client ID*" {
