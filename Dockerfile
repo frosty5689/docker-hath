@@ -15,6 +15,6 @@ RUN wget -q -O /tmp/hath-$HATH_VERSION.zip https://repo.e-hentai.org/hath/Hentai
 	rm /tmp/hath-$HATH_VERSION.zip
 
 ADD start.sh /opt/hath/
-WORKDIR /opt/hath
+WORKDIR /data/hath
 
 ENTRYPOINT ["expect", "/opt/hath/start.sh"]
