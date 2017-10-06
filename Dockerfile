@@ -1,12 +1,12 @@
 FROM openjdk:8-jre-alpine
 
-# Hentai@Home URL
-# https://repo.e-hentai.org/hath/HentaiAtHome_1.4.1.zip
+RUN apk add --update \
+    wget \
+    unzip \
+    expect \
+  && rm -rf /var/cache/apk/*
 
-RUN apk update --quiet && \
-    apk add --quiet --upgrade wget unzip expect
-
-ARG HATH_VERSION=1.4.1
+ARG HATH_VERSION=1.4.2
 
 RUN wget -q -O /tmp/hath-$HATH_VERSION.zip https://repo.e-hentai.org/hath/HentaiAtHome_$HATH_VERSION.zip && \
 	ls -l /tmp && \
@@ -17,4 +17,5 @@ RUN wget -q -O /tmp/hath-$HATH_VERSION.zip https://repo.e-hentai.org/hath/Hentai
 ADD start.sh /opt/hath/
 WORKDIR /data/hath
 
+VOLUME /data/hath
 ENTRYPOINT ["expect", "/opt/hath/start.sh"]
