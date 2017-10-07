@@ -44,9 +44,4 @@ expect {
     }
 }
 
-expect {
-    eof {
-        catch wait reason
-        exit $reason
-    }
-}
+interact
