@@ -44,4 +44,10 @@ expect {
     }
 }
 
+expect {
+    "Startup Failure*" {
+        exit 1
+    }
+}
+
 interact
