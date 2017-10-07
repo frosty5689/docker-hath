@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/bin/bash
 args="-t $IMAGE_NAME ."
 
-if [ $DOCKER_TAG != "latest"]; then
-  args="--build-arg=HATH_VERSION=$DOCKER_TAG $args"
+if [ $CACHE_TAG != "latest"]; then
+  args="--build-arg HATH_VERSION=$CACHE_TAG $args"
 fi
 
 docker build $args
