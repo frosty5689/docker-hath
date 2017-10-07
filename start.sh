@@ -44,4 +44,4 @@ expect {
     }
 }
 
-interact
+expect eof
