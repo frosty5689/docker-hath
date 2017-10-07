@@ -44,4 +44,4 @@ expect {
     }
 }
 
-expect eof
+exit
