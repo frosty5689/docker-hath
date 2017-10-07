@@ -8,7 +8,7 @@ RUN apk add --update \
     expect \
  && rm -rf /var/cache/apk/*
 
-ARG HATH_VERSION=1.4.2
+ARG VERSION=1.4.2
 
 RUN wget -q -O /tmp/hath-$HATH_VERSION.zip https://repo.e-hentai.org/hath/HentaiAtHome_$HATH_VERSION.zip && \
     ls -l /tmp && \

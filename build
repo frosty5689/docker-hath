@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+args="-t $IMAGE_NAME ."
+
+if [ $DOCKER_TAG != "latest"]; then
+  args="--build-arg=VERSION=$DOCKER_TAG $args"
+fi
+
+docker build $args
