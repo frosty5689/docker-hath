@@ -44,4 +44,9 @@ expect {
     }
 }
 
-exit
+expect {
+    eof {
+        catch wait reason
+        exit $reason
+    }
+}
