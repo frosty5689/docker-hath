@@ -2,7 +2,7 @@
 
 # Create client_login if it doesn't exist yet
 if [ ! -f /data/hath/data/client_login ]; then
-	echo "${HATH_CLIENT_ID}-${HATH_CLIENT_KEY}" >> /data/hath/data/client_login
+    printf "${HATH_CLIENT_ID}-${HATH_CLIENT_KEY}" >> /data/hath/data/client_login
 fi
 
 exec java -jar /opt/hath/HentaiAtHome.jar  \
