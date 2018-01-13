@@ -5,7 +5,6 @@ LABEL maintainer frosty5689 <frosty5689@gmail.com>
 RUN apk add --update \
     wget \
     unzip \
-    expect \
  && rm -rf /var/cache/apk/*
 
 ARG HATH_VERSION=1.4.2
@@ -22,4 +21,4 @@ WORKDIR /data/hath
 
 VOLUME ["/data/hath/cache", "/data/hath/data", "/data/hath/download", "/data/hath/log"]
 
-ENTRYPOINT ["expect", "/opt/hath/start.sh"]
+CMD ["/opt/hath/start.sh"]
