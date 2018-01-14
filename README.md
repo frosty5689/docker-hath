@@ -3,8 +3,7 @@
 ```
 docker create \
   --name hath \
-  --cap-add=NET_ADMIN \
-  -p <HATH_PORT>:<HATH_PORT> \
+  --net=host \
   -e HATH_CLIENT_ID=<HATH_CLIENT_ID> \
   -e HATH_CLIENT_KEY=<HATH_CLIENT_KEY> \
   -v </path/to/your/data/hath/cache>:/data/hath/cache \
@@ -16,8 +15,7 @@ docker create \
 
 ## Parameters
 
-* `--cap-add=NET_ADMIN` - Adds NET_ADMIN capabilities to container *required*.
-* `-p <HATH_PORT>:<HATH_PORT` - The port your Hath client is configured to run on *required*.
+* `--net=host` - Uses host network with container, *required*.
 * `-v /data/hath/cache` - H@H cache
 * `-v /data/hath/data` - H@H data
 * `-v /data/hath/download` - H@H download
