@@ -1,4 +1,4 @@
-FROM frosty5689/alpine.openjdk-jre:8.151.12-r0
+FROM openjdk:8-jre-alpine
 
 LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
@@ -9,16 +9,17 @@ RUN apk add --update \
 
 ARG HATH_VERSION=1.4.2
 
-COPY root/ /
-
 RUN wget -O /tmp/hath-$HATH_VERSION.zip https://repo.e-hentai.org/hath/HentaiAtHome_$HATH_VERSION.zip && \
     ls -l /tmp && \
     mkdir -p /opt/hath /hath && \
     unzip /tmp/hath-$HATH_VERSION.zip -d /opt/hath && \
     rm /tmp/hath-$HATH_VERSION.zip
 
+ADD start.sh /opt/hath/
+
+WORKDIR /opt/hath
 
 VOLUME ["/hath/cache", "/hath/data", "/hath/download", "/hath/log", "/hath/tmp"]
 
-CMD ["java", "-jar", "/opt/hath/HentaiAtHome.jar", "--cache-dir=/hath/cache", "--data-dir=/hath/data", "--download-dir=/hath/download", "--log-dir=/hath/log", "--temp-dir=/hath/tmp"]
+CMD ["/opt/hath/start.sh"]
 
