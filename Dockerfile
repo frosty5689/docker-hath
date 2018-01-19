@@ -18,6 +18,7 @@ RUN wget -O /tmp/hath-$HATH_VERSION.zip https://repo.e-hentai.org/hath/HentaiAtH
     rm /tmp/hath-$HATH_VERSION.zip
 
 
-VOLUME ["/hath/cache", "/hath/data", "/hath/download", "/hath/log"]
+VOLUME ["/hath/cache", "/hath/data", "/hath/download", "/hath/log", "/hath/tmp"]
 
-CMD ["java", "-jar", "/opt/hath/HentaiAtHome.jar", "--cache-dir=/hath/cache", "--data-dir=/hath/data", "--download-dir=/hath/download", "--download-dir=/hath/download"]
+CMD ["java", "-jar", "/opt/hath/HentaiAtHome.jar", "--cache-dir=/hath/cache", "--data-dir=/hath/data", "--download-dir=/hath/download", "--log-dir=/hath/log", "--temp-dir=/hath/tmp"]
+

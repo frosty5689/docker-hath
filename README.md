@@ -13,6 +13,7 @@ docker create \
   -v </path/to/your/hath/data>:/hath/data \
   -v </path/to/your/hath/download>:/hath/download \
   -v </path/to/your/hath/log>:/hath/log \
+  -v </path/to/your/hath/tmp>:/hath/tmp \
   frosty5689/hath
 ```
 
@@ -23,6 +24,7 @@ docker create \
 * `-v /hath/data` - H@H data
 * `-v /hath/download` - H@H download
 * `-v /hath/log` - H@H log
+* `-v /hath/tmp` - H@H tmp
 * `-e HATH_CLIENT_ID` - H@H Client ID
 * `-e HATH_CLIENT_KEY` - H@H Client Key
 * `-e TZ` - Timezone H@H will run in

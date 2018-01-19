@@ -3,7 +3,8 @@
 # permissions
 chown -R abc:abc \
 	/hath/data \
-	/hath/log
+	/hath/log \
+	/hath/tmp
 
 # Create client_login if it doesn't exist yet
 if [ ! -f /hath/data/client_login ]; then
