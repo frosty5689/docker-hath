@@ -8,7 +8,7 @@ fi
 exec java -jar /opt/hath/HentaiAtHome.jar \
     --cache-dir=/hath/cache               \
     --data-dir=/hath/data                 \
-    --download-dir=/hath/downloa          \
+    --download-dir=/hath/download         \
     --log-dir=/hath/log                   \
     --temp-dir=/hath/tmp
 
