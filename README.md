@@ -4,14 +4,14 @@
 docker create \
   --name hath \
   --net=host \
-  -e HATH_CLIENT_ID=<HATH_CLIENT_ID> \
-  -e HATH_CLIENT_KEY=<HATH_CLIENT_KEY> \
-  -e TZ=<TIMEZONE_TO_RUN_CONTAINER_IN> \
-  -v </path/to/your/hath/cache>:/hath/cache \
-  -v </path/to/your/hath/data>:/hath/data \
-  -v </path/to/your/hath/download>:/hath/download \
-  -v </path/to/your/hath/log>:/hath/log \
-  -v </path/to/your/hath/tmp>:/hath/tmp \
+  -v /path/to/your/hath/cache:/hath/cache \
+  -v /path/to/your/hath/data:/hath/data \
+  -v /path/to/your/hath/download>:/hath/download \
+  -v /path/to/your/hath/log:/hath/log \
+  -v /path/to/your/hath/tmp:/hath/tmp \
+  -e HATH_CLIENT_ID=YOUR_HATH_CLIENT_ID \
+  -e HATH_CLIENT_KEY=YOUR_HATH_CLIENT_KEY \
+  -e TZ=YOUR_TIMEZONE \
   frosty5689/hath
 ```
 
