@@ -1,7 +1,7 @@
 ## Usage
 
 ```
-docker create \
+docker run \
   --name hath \
   --net=host \
   -v /path/to/your/hath/cache:/hath/cache \
