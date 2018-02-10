@@ -3,6 +3,7 @@ FROM openjdk:8-jre-alpine
 LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
 RUN apk add --no-cache --update \
+    tzdata \
     wget \
     unzip
 
