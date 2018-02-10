@@ -4,7 +4,7 @@ LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
 RUN apk add --no-cache --update \
     ca-certificates \
-    tzdata
+    tzdata \
  && update-ca-certificates
 
 ARG HATH_VERSION=1.4.2
