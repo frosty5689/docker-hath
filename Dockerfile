@@ -2,10 +2,9 @@ FROM openjdk:8-jre-alpine
 
 LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
-RUN apk add --update \
+RUN apk add --no-cache --update \
     wget \
-    unzip \
- && rm -rf /var/cache/apk/*
+    unzip
 
 ARG HATH_VERSION=1.4.2
 
