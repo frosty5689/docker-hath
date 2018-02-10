@@ -14,9 +14,7 @@ RUN wget -O /tmp/hath-$HATH_VERSION.zip https://repo.e-hentai.org/hath/HentaiAtH
     unzip /tmp/hath-$HATH_VERSION.zip -d /opt/hath && \
     rm /tmp/hath-$HATH_VERSION.zip
 
-ADD start.sh /opt/hath/
-
-WORKDIR /opt/hath
+ADD run/* /opt/hath/
 
 VOLUME ["/hath/cache", "/hath/data", "/hath/download", "/hath/log", "/hath/tmp"]
 
