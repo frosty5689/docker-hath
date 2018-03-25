@@ -22,7 +22,7 @@ docker run \
 
 ## Parameters
 
-* `--net=host` - Uses host network with container, *required*.
+* `--net=host` - Uses host network with container, use this if H@H have trouble accepting connections. This will let H@H use the host's internal IP for routing instead of the internal IP used by Docker bridge.
 * `-v /hath/cache` - H@H cache
 * `-v /hath/data` - H@H data
 * `-v /hath/download` - H@H download
