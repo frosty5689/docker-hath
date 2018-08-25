@@ -9,6 +9,8 @@ RUN apk add --no-cache --update \
 
 ARG HATH_VERSION=1.4.2
 
+ENV _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true"
+
 RUN apk add --no-cache --update --virtual build-dependencies wget unzip && \
     wget -O /tmp/hath-$HATH_VERSION.zip https://repo.e-hentai.org/hath/HentaiAtHome_$HATH_VERSION.zip && \
     ls -l /tmp && \
