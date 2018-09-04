@@ -5,7 +5,7 @@ if [ ! -f /hath/data/client_login ]; then
 	printf "${HATH_CLIENT_ID}-${HATH_CLIENT_KEY}" >> /hath/data/client_login
 fi
 
-exec java $JVM_ARGS -jar /opt/hath/HentaiAtHome.jar \
+exec java -jar /opt/hath/HentaiAtHome.jar \
     --cache-dir=/hath/cache               \
     --data-dir=/hath/data                 \
     --download-dir=/hath/download         \
