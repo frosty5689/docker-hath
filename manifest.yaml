@@ -1,0 +1,21 @@
+image: frosty5689/{image}:{tag}
+manifests:
+  - image: frosty5689/{image}:amd64
+    platform:
+      architecture: amd64
+      os: linux
+  - image: frosty5689/{image}:arm32v5
+    platform:
+      architecture: arm
+      os: linux
+      variant: v5
+  - image: frosty5689/{image}:arm32v7
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7
+  - image: frosty5689/{image}:arm64v8
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
