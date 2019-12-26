@@ -1,15 +1,17 @@
-FROM multiarch/qemu-user-static:x86_64-arm as qemu
+# see hooks/build and hooks/.config
+ARG BASE_IMAGE_PREFIX
+FROM ${BASE_IMAGE_PREFIX}openjdk:8-jre-alpine
 
-FROM arm32v7/openjdk:8-jre-alpine
-
-COPY --from=qemu qemu-arm-static /usr/bin
+# see hooks/post_checkout
+ARG ARCH
+COPY qemu-${ARCH}-static /usr/bin
 
 LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
 RUN apk add --no-cache --update \
     ca-certificates \
     tzdata \
-    && update-ca-certificates
+ && update-ca-certificates
 
 ARG HATH_VERSION=1.4.2
 
