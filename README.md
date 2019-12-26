@@ -8,6 +8,23 @@
 ```
 docker run \
   --name hath \
+  -v /path/to/your/hath/cache:/hath/cache \
+  -v /path/to/your/hath/data:/hath/data \
+  -v /path/to/your/hath/download>:/hath/download \
+  -v /path/to/your/hath/log:/hath/log \
+  -v /path/to/your/hath/tmp:/hath/tmp \
+  -e HATH_CLIENT_ID=YOUR_HATH_CLIENT_ID \
+  -e HATH_CLIENT_KEY=YOUR_HATH_CLIENT_KEY \
+  -e TZ=YOUR_TIMEZONE \
+  -p YOUR_HATH_PORT/tcp \
+  frosty5689/hath
+```
+
+Or if bridge mode doesn't work on your Docker host for some reason...
+
+```
+docker run \
+  --name hath \
   --net=host \
   -v /path/to/your/hath/cache:/hath/cache \
   -v /path/to/your/hath/data:/hath/data \
@@ -31,4 +48,5 @@ docker run \
 * `-e HATH_CLIENT_ID` - H@H Client ID
 * `-e HATH_CLIENT_KEY` - H@H Client Key
 * `-e TZ` - Timezone H@H will run in
+* `-p YOUR_HATH_PORT/tcp` - The port used by H@H as set in the configuration page. The container port should match the host port.
 
