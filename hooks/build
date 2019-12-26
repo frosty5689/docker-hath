@@ -1,5 +1,5 @@
 #!/bin/bash
-args="-t $IMAGE_NAME ."
+args="-f $DOCKERFILE_PATH -t $IMAGE_NAME ."
 
 if [ $DOCKER_TAG != "latest" ]; then
   args="--build-arg HATH_VERSION=$DOCKER_TAG $args"
