@@ -14,7 +14,7 @@ for arch in ${build_architectures[@]}; do
 
   BASE_IMAGE_PREFIX="${base_image_prefix_map[${arch}]}"
   docker build \
-    --build-arg HATH_VERSION=${hath_version}
+    --build-arg HATH_VERSION=${hath_version} \
     --build-arg BASE_IMAGE_PREFIX=${BASE_IMAGE_PREFIX} \
     --build-arg ARCH=${arch} \
     --file $DOCKERFILE_PATH \
