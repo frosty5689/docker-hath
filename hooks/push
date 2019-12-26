@@ -8,10 +8,10 @@ source hooks/.config
 DOCKER_REPO="${DOCKER_REPO//index.docker.io\/}"
 
 for arch in ${build_architectures[@]}; do
-  echo "✅ Pushing ${DOCKER_REPO}:${CACHE_TAG}-${arch}"
+  echo "✅ Pushing ${DOCKER_REPO}:${DOCKER_TAG}-${arch}"
   echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
   echo
-  docker push ${DOCKER_REPO}:${CACHE_TAG}-${arch}
+  docker push ${DOCKER_REPO}:${DOCKER_TAG}-${arch}
 done
 
 
@@ -20,32 +20,32 @@ DOCKER_REPO="index.docker.io/${DOCKER_REPO}"
 manifests=""
 
 for arch in ${build_architectures[@]}; do
-  manifests="${manifests} ${DOCKER_REPO}:${CACHE_TAG}-${arch}"
+  manifests="${manifests} ${DOCKER_REPO}:${DOCKER_TAG}-${arch}"
 done
 
-echo "✅ Creating manifest ${DOCKER_REPO}:${CACHE_TAG}"
+echo "✅ Creating manifest ${DOCKER_REPO}:${DOCKER_TAG}"
 echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
-docker manifest create ${DOCKER_REPO}:${CACHE_TAG} \
+docker manifest create ${DOCKER_REPO}:${DOCKER_TAG} \
                             $manifests
 echo
 
 echo "✅ Annotating manifest"
 echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
 for arch in ${build_architectures[@]}; do
-    docker manifest annotate ${DOCKER_REPO}:${CACHE_TAG} \
-    ${DOCKER_REPO}:${CACHE_TAG}-${arch} \
+    docker manifest annotate ${DOCKER_REPO}:${DOCKER_TAG} \
+    ${DOCKER_REPO}:${DOCKER_TAG}-${arch} \
     --os linux \
     --arch ${docker_to_manifest_map[${arch}]}
 done
 
-echo "✅ Inspecting manifest ${DOCKER_REPO}:${CACHE_TAG}"
+echo "✅ Inspecting manifest ${DOCKER_REPO}:${DOCKER_TAG}"
 echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
-docker manifest inspect ${DOCKER_REPO}:${CACHE_TAG}
+docker manifest inspect ${DOCKER_REPO}:${DOCKER_TAG}
 echo
 
-echo "✅ Pushing manifest ${DOCKER_REPO}:${CACHE_TAG}"
+echo "✅ Pushing manifest ${DOCKER_REPO}:${DOCKER_TAG}"
 echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
-docker manifest push --purge ${DOCKER_REPO}:${CACHE_TAG}
+docker manifest push --purge ${DOCKER_REPO}:${DOCKER_TAG}
 echo
 
 echo

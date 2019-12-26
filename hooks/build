@@ -18,7 +18,7 @@ for arch in ${build_architectures[@]}; do
     --build-arg BASE_IMAGE_PREFIX=${BASE_IMAGE_PREFIX} \
     --build-arg ARCH=${arch} \
     --file $DOCKERFILE_PATH \
-    --tag "${DOCKER_REPO}:${CACHE_TAG}-${arch}"  \
+    --tag "${DOCKER_REPO}:${DOCKER_TAG}-${arch}"  \
     .
 done
 
@@ -36,7 +36,7 @@ for arch in ${build_architectures[@]}; do
   echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
 
   manifest_arch=${docker_to_manifest_map[${arch}]}
-  docker save "${DOCKER_REPO}:${CACHE_TAG}-${arch}" | tar xv
+  docker save "${DOCKER_REPO}:${DOCKER_TAG}-${arch}" | tar xv
 
   for filename in */json; do
     [ -e "$filename" ] || continue
