@@ -7,12 +7,12 @@ source hooks/.config
 # 1. push all images
 DOCKER_REPO="${DOCKER_REPO//index.docker.io\/}"
 
-for arch in ${build_architectures[@]}; do
-  echo "✅ Pushing ${DOCKER_REPO}:${DOCKER_TAG}-${arch}"
-  echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
-  echo
-  docker push ${DOCKER_REPO}:${DOCKER_TAG}-${arch}
-done
+# for arch in ${build_architectures[@]}; do
+#   echo "✅ Pushing ${DOCKER_REPO}:${DOCKER_TAG}-${arch}"
+#   echo "⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"
+#   echo
+#   docker push ${DOCKER_REPO}:${DOCKER_TAG}-${arch}
+# done
 
 
 # 2. build and push manifest
