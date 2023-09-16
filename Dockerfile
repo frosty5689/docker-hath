@@ -1,10 +1,5 @@
-# see hooks/build and hooks/.config
-ARG BASE_IMAGE_PREFIX
-FROM ${BASE_IMAGE_PREFIX}openjdk:8-jre-alpine
 
-# see hooks/post_checkout
-ARG ARCH
-COPY qemu-${ARCH}-static /usr/bin
+FROM openjdk:8-jre-alpine
 
 LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
@@ -13,7 +8,7 @@ RUN apk add --no-cache --update \
     tzdata \
  && update-ca-certificates
 
-ARG HATH_VERSION
+ENV HATH_VERSION=1.6.2
 
 RUN apk add --no-cache --update --virtual build-dependencies wget unzip && \
     wget -O /tmp/hath-$HATH_VERSION.zip https://repo.e-hentai.org/hath/HentaiAtHome_$HATH_VERSION.zip && \
