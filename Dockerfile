@@ -2,7 +2,7 @@ FROM openjdk:8-jre-alpine
 
 LABEL maintainer frosty5689 <frosty5689@gmail.com>
 
-ARG HATH_VERSION=1.6.2
+ARG HATH_VERSION
 
 RUN apk add --no-cache --update \
     ca-certificates \
