@@ -26,4 +26,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: frosty5689/hath:latest
+          tags: frosty5689/hath:latest, frosty5689/hath:1.6.2
