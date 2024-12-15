@@ -15,5 +15,6 @@ exec java -jar /opt/hath/HentaiAtHome.jar \
     --data-dir=/hath/data                 \
     --download-dir=/hath/download         \
     --log-dir=/hath/log                   \
-    --temp-dir=/hath/tmp
+    --temp-dir=/hath/tmp                  \
+    --disable-ip-origin-check
 
