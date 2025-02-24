@@ -28,5 +28,5 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: frosty5689/hath:${{ env.HATH_VERSION }}, frosty5689/hath:latest
+          tags: geofbayzoes/hath:${{ env.HATH_VERSION }}, geofbayzoes/hath:latest
           build-args: HATH_VERSION=${{ env.HATH_VERSION }}
